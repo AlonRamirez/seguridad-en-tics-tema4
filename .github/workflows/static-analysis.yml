@@ -17,18 +17,22 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.2.12'
           extensions: mbstring, intl, pdo_mysql
           coverage: none
           tools: composer
 
       - name: Cache Composer dependencies
         uses: actions/cache@v4
+
         with:
           path: vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
+
+      - name: Install Composer dependencies
+        run: composer install
 
       - name: Set up the database
         run: |
