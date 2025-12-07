@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Session;
 
 class Logout
 {
-    public function __invoke(): mixed
+    public function __invoke(): void
     {
         Auth::guard('web')->logout();
 
         Session::invalidate();
         Session::regenerateToken();
 
-        return redirect('/');
+        // return redirect('/');
     }
 }

@@ -1,6 +1,5 @@
 <?php
-return [
-    'disable_vite' => true,
-];
 
-?>
+return [
+    'disable_vite' => false,
+];
