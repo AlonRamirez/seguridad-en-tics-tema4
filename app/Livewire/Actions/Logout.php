@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class Logout
 {
-    public function __invoke()
+    public function __invoke(): mixed
     {
         Auth::guard('web')->logout();
 
